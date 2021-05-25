@@ -353,6 +353,26 @@ RSSHub supports two caching methods: memory and redis
 
 `REDIS_URL`: Redis target address（invalid when `CACHE_TYPE` is set to memory）, default to `redis://localhost:6379/`
 
+#### Proxy URI
+
+`PROXY_URI`: Proxy URI, support socks4, socks5 (SOCKS5 with DNS query locally, not recommanded), socks5h (use SOCKS5 to query DNS, recommanded), http, https. The specific support is subject to the NPM package [socks-proxy-agent](https://www.npmjs.com/package/socks-proxy-agent) . Also refer to [the usage of SOCKS proxy protocol in curl](https://daniel.haxx.se/blog/2020/05/26/curl-ootw-socks5/).
+
+`PUPPETEER_PROXY_URI`: Using proxy in `Puppeteer`
+
+> The format Proxy URI:
+>
+> -   `{protocol}://{host}:{port}`
+> -   `{protocol}://{username}:{password}@{host}:{port}` (with authentication)
+>
+> Some example：
+>
+> -   `socks4://127.0.0.1:1080`
+> -   `socks5h://user:pass@127.0.0.1:1080`
+> -   `socks://127.0.0.1:1080`
+> -   `http://127.0.0.1:8080`
+> -   `http://user:pass@127.0.0.1:8080`
+> -   `https://127.0.0.1:8443`
+
 ### Proxy Configurations
 
 Partial routes have a strict anti-crawler policy, and can be configured to use proxy
